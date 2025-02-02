@@ -12,7 +12,7 @@ import java.util.List;
 public class arraySortController {
     @PostMapping("/sort")
     public ResponseEntity<?> sortArray(@RequestBody RequestData requestData) {
-        System.out.println(requestData);
+        System.out.println("ori"+requestData);
 
         List<Integer> array=requestData.getArray();
 
