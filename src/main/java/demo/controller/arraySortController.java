@@ -34,7 +34,7 @@ public class arraySortController {
             }
         }
 
-        System.out.println(array);
+        System.out.println("arr"+array);
         Collections.sort(array);
         return ResponseEntity.ok(Collections.singletonMap("SortedArray",array));
 
