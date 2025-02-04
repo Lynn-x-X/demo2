@@ -26,7 +26,7 @@ public class deDuplicationController {
     @PostMapping("/dedup")
     public ResponseEntity<?> dedup(@RequestBody RequestData requestData) {
         System.out.println("orii"+requestData);
-        List<String> array=requestData.getArray();
+        List<Object> array=requestData.getArray();
 
         if(array==null){
             System.out.println("array is null");
@@ -66,11 +66,11 @@ public class deDuplicationController {
 
 
     public static class RequestData {
-        private List<String> array;
-        public List<String> getArray(){
+        private List<Object> array;
+        public List<Object> getArray(){
             return array;
         }
-        public void setArray(List<String> array){
+        public void setArray(List<Object> array){
             this.array=array;
         }
     }
