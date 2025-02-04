@@ -41,13 +41,13 @@ public class deDuplicationController {
         }
 
         List<String> validStrings = new ArrayList<>();
-        for(Object s:array){
-            if(!(s instanceof String)){
-                System.out.println("error:"+s+" is not a String");
+        for(Object element:array){
+            if(!(element instanceof String)){
+                System.out.println("error:"+element+" is not a String");
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                         .body(Collections.singletonMap("error", "All elements must be String"));
             }
-            String str = (String) s;
+            String str = (String) element;
             if(str.length()>100){
                 System.out.println("length > 100");
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST)
