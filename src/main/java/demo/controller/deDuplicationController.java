@@ -28,7 +28,7 @@ public class deDuplicationController {
         System.out.println("orii"+requestData);
         List<String> array=requestData.getArray();
 
-        if(array==null||array.size()==0){
+        if(array==null){
             System.out.println("array is null");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body(Collections.singletonMap("error", "array is null"));
@@ -41,6 +41,12 @@ public class deDuplicationController {
         }
 
         for(String s:array){
+            if(!(s instanceof String)){
+                System.out.println("error:"+s+" is not a String");
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                        .body(Collections.singletonMap("error", "All elements must be String"));
+            }
+
             if(s.length()>100){
                 System.out.println("length > 100");
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST)
