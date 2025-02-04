@@ -40,21 +40,23 @@ public class deDuplicationController {
                     .body(Collections.singletonMap("error", "array size > 500"));
         }
 
-        for(String s:array){
+        List<String> validStrings = new ArrayList<>();
+        for(Object s:array){
             if(!(s instanceof String)){
                 System.out.println("error:"+s+" is not a String");
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                         .body(Collections.singletonMap("error", "All elements must be String"));
             }
-
-            if(s.length()>100){
+            String str = (String) s;
+            if(str.length()>100){
                 System.out.println("length > 100");
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                         .body(Collections.singletonMap("error", "length > 100"));
             }
+            validStrings.add(str);
         }
-        System.out.println("arr"+array);
-        Set<String> set=new HashSet<>(array);
+        System.out.println("arr"+validStrings);
+        Set<String> set=new HashSet<>(validStrings);
         List<String> list=new ArrayList<>(set);
         Collections.sort(list);
 
