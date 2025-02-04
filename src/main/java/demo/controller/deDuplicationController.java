@@ -15,6 +15,7 @@ import java.util.*;
 public class deDuplicationController {
     @PostMapping("/dedup")
     public ResponseEntity<?> dedup(@RequestBody RequestData requestData) {
+        System.out.println("orii"+requestData);
         List<String> array=requestData.getArray();
 
         if(array==null){
