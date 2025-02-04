@@ -18,7 +18,7 @@ public class deDuplicationController {
         System.out.println("orii"+requestData);
         List<String> array=requestData.getArray();
 
-        if(array==null){
+        if(array==null||array.size()==0){
             System.out.println("array is null");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                     .body(Collections.singletonMap("error", "array is null"));
