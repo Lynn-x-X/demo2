@@ -10,6 +10,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.*;
 
+//1. 接收一个 JSON 格式的字符串数组。
+//2. 对数组进行校验：
+//确保数组中仅包含字符串，并且长度不超过 500 个元素。
+//字符串长度不得超过 100 个字符。
+//3. 进行数据处理：
+//去重数组中的重复字符串。
+//按字母顺序对字符串排序。
+//4. 返回处理后的数组。
+//5. 如果输入数据不符合要求，返回相关的错误信息。
+
 @RestController
 @RequestMapping("/api")
 public class deDuplicationController {
